@@ -1,20 +1,22 @@
 import cv2
 import sys
-from os import listdir,path
+from os import listdir
+import os
 import numpy as np
 from PIL import Image
-import pytesseract
-from pytesseract import image_to_string
+#import pytesseract
+#from pytesseract import image_to_string
 from matplotlib import pyplot as plt
 
 
 #path = 'C:\Users\NISHANT\Desktop\Sem 3\RE\Code\Images'
 path = os.path.join(os.path.dirname(__file__),os.path.join('..','Images'))
 images = [ f for f in listdir(path) ]
+print images
 img_no = 1
 
 for image in images:
-    img = cv2.imread(path+'\\'+image)
+    img = cv2.imread(os.path.join(path,image))
     cv2.imshow('Image', img)
     cv2.waitKey(0)
 
